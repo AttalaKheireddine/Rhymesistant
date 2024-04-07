@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:window_manager/window_manager.dart';
+import 'package:rhymesistant/side.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await windowManager.ensureInitialized();
+
+  windowManager.setAlwaysOnTop(true);
   runApp(const MyApp());
 }
 
@@ -23,21 +28,12 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
   final String title;
-
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,15 +44,33 @@ class _MyHomePageState extends State<MyHomePage> {
         centerTitle: true,
       ),
       body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Container(
-          height: double.infinity,
-          width: double.infinity,
-          color: Colors.green,
-        )
-      ),
+
+        child:Column(
+          children: [
+            Flexible(child:
+            Container(
+              height: double.infinity,
+              width: double.infinity,
+              color: Color(0xffc6e2ee),
+
+              child: Row(
+                children: [
+                  Expanded(child:Rhymeside()),
+                  Expanded(child:Rhymeside()),
+                ],
+              ),
+            )),
+    Container(
+      height: 30,
+      color: Color(0xFF143543),
+      child: Center(
+        child: Text("Created by KH! (The Black Quill)", style:
+        TextStyle(
+          color: Colors.white70,
+    ),),),
+    )
+      ]),
       // This trailing comma makes auto-formatting nicer for build methods.
-    );
+    ));
   }
 }
