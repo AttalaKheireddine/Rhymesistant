@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:rhymesistant/side.dart';
+import 'package:rhymesistant/scraping.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await windowManager.ensureInitialized();
-
   windowManager.setAlwaysOnTop(true);
   runApp(const MyApp());
 }
@@ -40,6 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 40.0,
         title: Text(widget.title, style: TextStyle(fontFamily: 'Roboto'),),
         centerTitle: true,
       ),
