@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:window_manager/window_manager.dart';
 import 'package:rhymesistant/side.dart';
-import 'package:rhymesistant/scraping.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -38,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
 
-    return Scaffold(
+    return SafeArea(child: Scaffold(
       appBar: AppBar(
         toolbarHeight: 40.0,
         title: Text(widget.title, style: TextStyle(fontFamily: 'Roboto'),),
@@ -72,6 +71,6 @@ class _MyHomePageState extends State<MyHomePage> {
     )
       ]),
       // This trailing comma makes auto-formatting nicer for build methods.
-    ));
+    )));
   }
 }

@@ -93,7 +93,7 @@ class _RhymesideState extends State<Rhymeside> {
 
 Widget wrapFromWords(List<String> words, BuildContext context){
 
-  return SingleChildScrollView(
+ return SingleChildScrollView(
     child: Wrap(
       spacing: 10.0, // Space between children
       runSpacing: 10.0, // Space between lines
